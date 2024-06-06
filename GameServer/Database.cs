@@ -30,14 +30,24 @@ namespace GameServer
 
         public void ShowTopPlayerLevel(int maxValuePlayers)
         {
-            var sortPlayerLevel = _players.OrderBy(player => player.Level);
+            var sortPlayerLevel = _players.OrderBy(player => player.Level).Take(maxValuePlayers);
 
+            if (sortPlayerLevel.Count() == 0)
+            {
+                Console.WriteLine("отсортированный список пуст");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("отсортированный список НЕ пуст");
+                Console.ReadKey();
+            }
             ShowTopPlayer(sortPlayerLevel);
         }
 
         public void ShowTopPlayerPower(int maxValuePlayers)
         {
-            var sortPlayerPower = _players.OrderBy(player => player.Power);
+            var sortPlayerPower = _players.OrderBy(player => player.Power).Take(maxValuePlayers);
 
             ShowTopPlayer(sortPlayerPower);
         }
