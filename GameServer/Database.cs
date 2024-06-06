@@ -31,17 +31,17 @@ namespace GameServer
         {
             var sortPlayerLevel = _players.OrderByDescending(player => player.Level).Take(maxValuePlayers);
 
-            ShowTopPlayer(sortPlayerLevel);
+            ShowTopPlayers(sortPlayerLevel);
         }
 
         public void ShowTopPlayerPower(int maxValuePlayers)
         {
             var sortPlayerPower = _players.OrderByDescending(player => player.Power).Take(maxValuePlayers);
 
-            ShowTopPlayer(sortPlayerPower);
+            ShowTopPlayers(sortPlayerPower);
         }
 
-        private void ShowTopPlayer(IEnumerable<Player> sortList)
+        private void ShowTopPlayers(IEnumerable<Player> sortList)
         {
             foreach (Player player in sortList)
             {
